@@ -430,7 +430,15 @@ document.getElementById('sendApiBtn').addEventListener('click', async function()
         // 결과 표시
         if (result.success) {
             apiResultElement.className = 'api-result success';
-            apiResultElement.textContent = JSON.stringify(result.data, null, 2);
+            
+            // final_answer만 추출하여 표시
+            if (result.data && result.data.final_answer) {
+                apiResultElement.textContent = result.data.final_answer;
+            } else {
+                // final_answer가 없는 경우 전체 응답 표시
+                apiResultElement.className = 'api-result error';
+                apiResultElement.textContent = '⚠️ final_answer를 찾을 수 없습니다.\n\n전체 응답:\n' + JSON.stringify(result.data, null, 2);
+            }
         } else {
             apiResultElement.className = 'api-result error';
             apiResultElement.textContent = result.error + `\n\n📋 요청 데이터:\n${JSON.stringify(jsonData, null, 2)}`;
