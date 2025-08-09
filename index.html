@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>굿피커 UT 프리미엄 대체텍스트 생성기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>굿피커 UT 프리미엄 대체텍스트 생성기</h1>
+        
+        <div class="section">
+            <div class="section-title">Product Type 선택</div>
+            <div class="number-buttons">
+                <button class="number-btn" data-type="common">
+                    <span class="btn-main">일반 상품</span>
+                    <span class="btn-sub">Common</span>
+                </button>
+                <button class="number-btn" data-type="food">
+                    <span class="btn-main">식품</span>
+                    <span class="btn-sub">Food</span>
+                </button>
+                <button class="number-btn" data-type="fashion">
+                    <span class="btn-main">패션</span>
+                    <span class="btn-sub">Fashion</span>
+                </button>
+                <button class="number-btn" data-type="daily_supplies">
+                    <span class="btn-main">생활용품</span>
+                    <span class="btn-sub">Daily Supplies</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <div class="links-header">
+                <div class="section-title">이미지 URL 입력</div>
+                <div class="links-info">최대 10개까지 입력 가능</div>
+            </div>
+            <div class="link-inputs" id="linkInputs">
+                <div class="link-input-wrapper">
+                    <div class="input-row">
+                        <input type="text" class="link-input" placeholder="이미지 URL을 입력하세요">
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <button class="add-link-btn" id="addLinkBtn">+ URL 추가</button>
+        </div>
+
+        <button class="generate-btn" id="generateBtn">JSON 생성</button>
+
+        <div class="section">
+            <div class="section-title">JSON 출력</div>
+            <div class="json-output" id="jsonOutput">여기에 JSON이 표시됩니다</div>
+        </div>
+
+        <div class="api-controls">
+            <button class="test-btn" id="testConnectionBtn">
+                <span class="btn-text">🔍 연결 테스트</span>
+                <span class="btn-loading">테스트 중...</span>
+            </button>
+            <button class="api-btn" id="sendApiBtn" disabled>
+                <span class="btn-text">API로 결과 받기</span>
+                <span class="btn-loading">전송 중...</span>
+            </button>
+        </div>
+
+        <div class="section" id="apiResultSection" style="display: none;">
+            <div class="section-title">API 응답 결과</div>
+            <div class="api-result" id="apiResult">여기에 API 응답이 표시됩니다</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
